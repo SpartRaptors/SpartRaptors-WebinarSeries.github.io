@@ -7,6 +7,9 @@
 		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+                <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+                <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+                <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
 		<style>
 			/*   RESET STYLESHEET   */
 			html,body,div,p,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
@@ -434,14 +437,14 @@
 			<div id="reg-form">
 				<!--   REGISTRATION FORM   -->
 				<div class="form-container">
-					<form netlify>
+					<form name="submit-to-google-sheet">
 						<h1 class="form-head">ENTER YOUR DETAILS</h1>
-						<div class="divs">  <input class="input" type="text" placeholder="FULL NAME" required>  </div>
-						<div class="divs">  <input class="input" type="tel" placeholder="PHONE NUMBER" pattern="[0-9]{10}" title="Enter a valid 10 digit number" required>  </div>
-						<div class="divs">  <input class="input" type="email" placeholder="EMAIL ID" required>  </div>
-						<div class="divs">  <input class="input" type="text" placeholder="DESIGNATION" required>  </div>
-						<div class="divs">  <textarea class="input" type="text" placeholder="ADDRESS" required></textarea>  </div>
-						<div class="divs">  <input class="input" type="text" placeholder="COLLEGE NAME" required>  </div>
+						<div class="divs">  <input class="input" type="text" name="name" placeholder="FULL NAME" required>  </div>
+						<div class="divs">  <input class="input" type="tel" name="phone" placeholder="PHONE NUMBER" pattern="[0-9]{10}" title="Enter a valid 10 digit number" required>  </div>
+						<div class="divs">  <input class="input" type="email" name="email" placeholder="EMAIL ID" required>  </div>
+						<div class="divs">  <input class="input" type="text" name="designation" placeholder="DESIGNATION" required>  </div>
+						<div class="divs">  <textarea class="input" type="text" name="address" placeholder="ADDRESS" required></textarea>  </div>
+						<div class="divs">  <input class="input" type="text" name="college" placeholder="COLLEGE NAME" required>  </div>
 						<div class="divs">  <input class="send" type="submit" value="REGISTER">  </div>
 					</form>
 				</div>
@@ -479,6 +482,15 @@
 			function showForm() {
 				document.getElementById('reg-form').style.display = 'block';
 			}
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxyp39Gnr4LREjUwpeSseSosF88f1g9gkerJS_AfrEyu4YU4VBF/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
 		</script>
 	</body>
 </html>
