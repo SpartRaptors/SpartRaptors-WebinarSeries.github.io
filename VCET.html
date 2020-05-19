@@ -7,9 +7,6 @@
 		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
-                <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
-                <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
-                <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
 		<style>
 			/*   RESET STYLESHEET   */
 			html,body,div,p,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
@@ -174,7 +171,6 @@
 			/*   NAME & JOB   */
 			.body, .footer {
 				flex: 0.5;
-				color: #111;
 				padding: 5px;
 				display: flex;
 				align-items: center;
@@ -182,6 +178,7 @@
 				justify-content: center;
 			}
 			.body {
+                                color: #C93;
 				text-align: center;
 				border-bottom: 2px solid #111;
 			}
@@ -358,7 +355,7 @@
 					<h1 class="margin-1 l main-head">VELAMMAL WEBINAR SERIES</h1>
 					<h3 class="margin-1 xs">ON</h3>
 					<div class="fit">  <p class="topic s" style="font-size: 16px">  <strong style="color: #639; font-weight: 900">" Revolutionary Challenges in 5G Technologies and Impact on COVID'19 Pandemic "</strong>  </p>  </div>
-					<h2 class="margin-1" style="font-size: 19px">May 27 to May 30, 2020  <br><br>  <strong style="font-size: 17px">(Timings: 10:30 am to 12:00 noon)</strong>  </h2>
+					<h2 class="margin-1" style="font-size: 19px">May 27 to May 30, 2020  <br><br>  <strong style="font-size: 17px">(10:30 am to 12:00 noon)</strong>  </h2>
 					<!--   REGISTER BUTTON   -->
 					<div id="parent" class="margin-2">  <a id="reg-btn" href="#reg-form">CLICK TO REGISTER</a>  </div>
 				</div>
@@ -471,6 +468,9 @@
 				</div>
 			</div>
 		</footer>
+                <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+                <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+                <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
 		<script>
 			$('.nav-btn').click(function() { showNav(); });
 			$('nav ul li a').click(function() { showNav(); });
@@ -482,16 +482,15 @@
 			function showForm() {
 				document.getElementById('reg-form').style.display = 'block';
 			}
-                        $('.divs button').click(function() { alert('Your form has been submitted. Thank you for registering'); });
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxyp39Gnr4LREjUwpeSseSosF88f1g9gkerJS_AfrEyu4YU4VBF/exec'
-  const form = document.forms['submit-to-google-sheet']
-
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
+                        $('button').click(function() { alert('Your form has been submitted. Thank you for registering'); });
+                        const scriptURL = 'https://script.google.com/macros/s/AKfycbxyp39Gnr4LREjUwpeSseSosF88f1g9gkerJS_AfrEyu4YU4VBF/exec'
+                        const form = document.forms['submit-to-google-sheet']
+                        form.addEventListener('submit', e => {
+                                e.preventDefault()
+                                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                                .then(response => console.log('Success!', response))
+                                .catch(error => console.error('Error!', error.message))
+                        });
 		</script>
 	</body>
 </html>
