@@ -178,7 +178,7 @@
 				justify-content: center;
 			}
 			.body {
-				color: #90C;
+				color: #639;
 				text-align: center;
 				border-bottom: 2px solid #111;
 			}
@@ -468,9 +468,9 @@
 				</div>
 			</div>
 		</footer>
-                <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
-                <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
-                <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+		<script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+		<script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+		<script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
 		<script>
 			$('.nav-btn').click(function() { showNav(); });
 			$('nav ul li a').click(function() { showNav(); });
@@ -482,15 +482,15 @@
 			function showForm() {
 				document.getElementById('reg-form').style.display = 'block';
 			}
-                        $('button').click(function() { alert('Your form has been submitted. Thank you for registering'); });
-                        const scriptURL = 'https://script.google.com/macros/s/AKfycbxyp39Gnr4LREjUwpeSseSosF88f1g9gkerJS_AfrEyu4YU4VBF/exec'
-                        const form = document.forms['submit-to-google-sheet']
-                        form.addEventListener('submit', e => {
-                                e.preventDefault()
-                                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                                .then(response => console.log('Success!', response))
-                                .catch(error => console.error('Error!', error.message))
-                        });
+			$('button').click(function() { alert('Your form has been submitted. Thank you for registering'); });
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbxyp39Gnr4LREjUwpeSseSosF88f1g9gkerJS_AfrEyu4YU4VBF/exec'
+			const form = document.forms['submit-to-google-sheet']
+			form.addEventListener('submit', e => {
+				e.preventDefault()
+				fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				.then(response => console.log('Success!', response))
+				.catch(error => console.error('Error!', error.message))
+			});
 		</script>
 	</body>
 </html>
